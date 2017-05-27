@@ -2,6 +2,7 @@
 
 namespace OwenMelbz\RobotsTxt;
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -41,6 +42,11 @@ class RobotsTxtServiceProvider extends ServiceProvider {
         } else {
             RobotsTxt::setTemplatePath(__DIR__.'/resources/robots.txt');
         }
+
+        // We load the blade directive for nofollow/noindex meta tag
+        Blade::directive('robotsMeta', function () {
+            return "<?php echo (new \OwenMelbz\RobotsTxt\RobotsMeta)->render(); ?>";
+        });
     }
 
     /**
