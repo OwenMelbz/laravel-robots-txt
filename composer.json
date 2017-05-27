@@ -1,0 +1,20 @@
+{
+    "name": "owenmelbz/laravel-robots-txt",
+    "description": "Laravel 5.x helpers for a semi-automated robots.txt and meta tags",
+    "keywords": ["laravel", "robots.txt"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Owen Melbourne",
+            "email": "owenmelbz@gmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/support": "5.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "OwenMelbz\\RobotsTxt\\": "src/"
+        }
+    }
+}
