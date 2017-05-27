@@ -11,6 +11,8 @@ An automatically generated robots.txt which automatically discourages indexing o
 
 3. Add `BLOCK_ROBOTS=true` to your application environment config e.g `.env`
 
+4. Within your `<head>` area you can include the blade directive `@robotsMeta` to pull through a `noindex, nofollow` meta tag.
+
 ## Configuration
 
 If you publish the package via `php artisan vendor:publish --provider="OwenMelbz\RobotsTxt\RobotsTxtServiceProvider"` you can use a custom robots.txt template file to include extra rules.
