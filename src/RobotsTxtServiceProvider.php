@@ -29,8 +29,18 @@ class RobotsTxtServiceProvider extends ServiceProvider {
         // Publish the config
         $this->publishes([
             __DIR__.'/../config/config.php' => config_path($this->packageName.'.php'),
-        ], 'config');
-        
+            __DIR__.'/resources/robots.txt' => resource_path('robots.txt')
+        ]);
+
+        // Load the routes
+        $this->loadRoutesFrom(__DIR__.'/routes.php');
+
+        // We load a custom template if it exists.
+        if (file_exists($templatePath = resource_path('robots.txt'))) {
+            RobotsTxt::setTemplatePath($templatePath);
+        } else {
+            RobotsTxt::setTemplatePath(__DIR__.'/resources/robots.txt');
+        }
     }
 
     /**

@@ -13,4 +13,4 @@ An automatically generated robots.txt which automatically discourages indexing o
 
 ## Configuration
 
-If you publish the config via `php artisan vendor:publish --provider="OwenMelbz\RobotsTxt\RobotsTxtServiceProvider"` you can define a custom robots.txt template file.
+If you publish the package via `php artisan vendor:publish --provider="OwenMelbz\RobotsTxt\RobotsTxtServiceProvider"` you can use a custom robots.txt template file to include extra rules.

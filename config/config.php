@@ -10,10 +10,10 @@
 
     /*
     |--------------------------------------------------------------------------
-    | A custom robots.txt template file to use
+    | Should we include a URL to the sitemap.xml ?
     |--------------------------------------------------------------------------
     */
 
-   'template' => null
+    'include_sitemap' => true,
 
 ];
