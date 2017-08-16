@@ -7,7 +7,7 @@ class RobotsMeta {
     public function render()
     {
         if ($this->shouldBlockRobots()) {
-            return '<meta name="robots" content="noindex, nofollow>"/>';
+            return '<meta name="robots" content="noindex, nofollow">';
         }
     }
 
