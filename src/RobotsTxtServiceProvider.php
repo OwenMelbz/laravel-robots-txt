@@ -27,14 +27,14 @@ class RobotsTxtServiceProvider extends ServiceProvider {
         // Publish the config
         $this->publishes([
             __DIR__.'/../config/config.php' => config_path($this->packageName.'.php'),
-            __DIR__.'/resources/robots.txt' => resource_path('robots.txt')
+            __DIR__.'/resources/robots.txt' => $this->resource_path('robots.txt')
         ]);
 
         // Load the routes
-        $this->loadRoutesFrom(__DIR__.'/routes.php');
+        $this->loadRoutesFromLegacy(__DIR__.'/routes.php');
 
         // We load a custom template if it exists.
-        if (file_exists($templatePath = resource_path('robots.txt'))) {
+        if (file_exists($templatePath = $this->resource_path('robots.txt'))) {
             RobotsTxt::setTemplatePath($templatePath);
         } else {
             RobotsTxt::setTemplatePath(__DIR__.'/resources/robots.txt');
@@ -54,6 +54,26 @@ class RobotsTxtServiceProvider extends ServiceProvider {
     public function register()
     {
         $this->mergeConfigFrom( __DIR__.'/../config/config.php', $this->packageName);
+    }
+
+    protected function resource_path($filename)
+    {
+        if (function_exists('resource_path')) {
+            return resource_path($filename);
+        }
+
+        return app_path('resources/' . trim($filename, '/'));
+    }
+
+    protected function loadRoutesFromLegacy($path)
+    {
+        if (method_exists($this, 'loadRoutesFrom')) {
+            return $this->loadRoutesFrom($path);
+        }
+
+        if (! $this->app->routesAreCached()) {
+            require $path;
+        }
     }
 
 }
