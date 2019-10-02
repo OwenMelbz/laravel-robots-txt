@@ -1,4 +1,4 @@
-# Laravel 5 robots.txt helper with meta blade directive
+# Laravel 5 & 6 robots.txt helper with meta blade directive
 
 An automatically generated robots.txt which automatically discourages indexing of folders, with additional meta tag blade directives for in page exclusions.
 
