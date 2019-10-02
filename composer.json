@@ -9,9 +9,6 @@
             "email": "owenmelbz@gmail.com"
         }
     ],
-    "require": {
-        "illuminate/support": "5.*"
-    },
     "autoload": {
         "psr-4": {
             "OwenMelbz\\RobotsTxt\\": "src/"
